@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Arsenal SC';
+  src: url('../assets/fonts/ArsenalSC.ttf') format('truetype');
+}
+
+.scroll-container:hover .scroll {
+  animation-play-state: paused;
+}
+
+.scroll-container .scroll-item {
+  transition: transform 0.3s ease-in-out, z-index 0.3s;
+}
+
+.scroll-container .scroll-item:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cards .card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}

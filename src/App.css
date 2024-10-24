@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  margin-top: -10px;
+}
+.nav-items {
+  color: rgb(0, 0, 0);
+  font-size: 1.23rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.nav-items:hover {
+  color: rgb(240, 228, 215);
+}
+#navbrand {
+  font-family: sans-serif;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+@keyframes first-loop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+@keyframes loop {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-container {
+  --time: 30s;
+  --half-time: 15s;
+
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "scroll-area";
+}
+
+.scroll {
+  grid-area: scroll-area;
+  animation: loop var(--time) linear infinite;
+  transform: translateX(100%);
+
+  &[data-first] {
+    animation: first-loop var(--time) linear forwards;
+    transform: translateX(0);
+  }
+
+  &[data-last] {
+    animation-delay: var(--half-time);
+  }
+}
+
+.fade {
+  background: linear-gradient(
+    90deg,
+    #fff,
+    transparent 30%,
+    transparent 70%,
+    #fff
+  );
+}
